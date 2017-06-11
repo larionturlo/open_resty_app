@@ -21,8 +21,7 @@ function token.set( name , hash )
 
     local ok, err = rconn:set(name, hash)
     if not ok then
-        ngx.say("failed to set " .. name .. ": ", err)
-        return
+        ngx.log(ngx.ERR,"failed to set " .. name .. ": ", err)
     end
 
     rconn:close()
@@ -35,13 +34,11 @@ function token.get( name )
     local res, err = rconn:get(name)
 
     if not res then
-        ngx.say("failed to get " .. name .. ": ", err)
-        return
+        ngx.log(ngx.ERR, "failed to get " .. name .. ": ", err)
     end
 
     if res == ngx.null then
-        ngx.say(name .. " not found.")
-        return
+        ngx.log(ngx.ERR, name .. " not found.")
     end
 
     rconn:close()

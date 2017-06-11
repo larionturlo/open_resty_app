@@ -27,9 +27,15 @@ events {
 http {
     server {
         listen 8080;
+        set $template_root ./app/templates;
         location / {
             default_type text/html;
+            access_by_lua_file  'app/access.lua';
             content_by_lua_file 'app/init.lua';
+        }
+        location /login {
+            default_type text/html;
+            content_by_lua_file 'app/login.lua';
         }
     }
 }
