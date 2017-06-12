@@ -9,8 +9,7 @@ local function conn()
     local ok, err = red:connect("127.0.0.1", 6379)
 
     if not ok then
-        ngx.say("failed to connect: ", err)
-        return
+        ngx.log(ngx.ERR,"failed to connect: ", err)
     end
 
     return red

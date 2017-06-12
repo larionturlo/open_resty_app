@@ -3,12 +3,14 @@ local ck = require "resty.cookie"
 local crypt = require "app.modules.crypt"
 local token = require "app.modules.token"
 local cookie = require "app.modules.cookie"
-
+local locale = require "app.modules.locale"
 
 
 local username = 'admin'
 local passhash = 'f8723f09756270f2aaaaec30776fc317d3b6473b'
 local renderData = {
+    page_title = locale.login_title,
+    style = 'static/css/login.css',
     error = '',
     username = ''
 }

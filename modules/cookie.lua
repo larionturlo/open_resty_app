@@ -19,6 +19,7 @@ function cookie.set(name, value, days)
         key = name,
         value = value,
         path = "/",
+        domain = "localhost",
         secure = false, httponly = false,
         expires = os.date("!%A, %d-%b-%Y %H:%M:%S GMT", os.time() + days * day),
         max_age = 50,

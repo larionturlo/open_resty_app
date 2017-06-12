@@ -1,9 +1,13 @@
 {(header.html)}
-    <h1>Привет!</h1>
-    <p style="color:red">{{error}}</p>
-    <form action="" method="post">
-        <input type="text" name="username" id="username" value="{{username}}" placeholder="Имя" required >
-        <input type="password" name="password" id="password" placeholder="Пароль" required >
-        <input type="submit" value="Войти" >
+<div class="page page_login">
+    <section class="section_login">
+    <h1 class="page__title">Привет!</h1>
+    <form class="form form_login" action="" method="post">
+        <p class="form__msg_error">{{error}}</p>
+        <input class="form__input" type="text" name="username" id="username" value="{{username}}" placeholder="Имя" required >
+        <input class="form__input" type="password" name="password" id="password" placeholder="Пароль" required >
+        <input class="form__submit button"type="submit" value="Войти" >
     </form>
+    </section>
+</div>
 {(footer.html)}

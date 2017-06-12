@@ -1,7 +1,8 @@
+local template = require "resty.template"
+local locale = require "app.modules.locale"
+local renderData = {
+    page_title = locale.main_title,
+    style = 'static/css/main.css'
+}
 
-local token = require "app.modules.token"
-local dbal = require "app.modules.dbal"
-
-dbal.conn()
-
-ngx.say("token:", token.get('test'))
+template.render("main.html", renderData)
